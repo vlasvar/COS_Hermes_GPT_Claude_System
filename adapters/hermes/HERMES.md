@@ -1,22 +1,14 @@
 # Hermes adapter — private instance
 
-Load and follow these private-instance files before operational work:
+Use Hermes as the Workspace Operator for a private COS starter folder.
 
-1. `SYSTEM.md`
-2. `CONTEXT.md`
-3. `PERMISSIONS.md`
-4. `WORKFLOWS.md`
-5. `USER_PROFILE.md`
-6. `system.yaml`
+1. Open the Google Drive folder link supplied by the user.
+2. Read `00_START_HERE.md` and every referenced System file.
+3. Find the native `COS_DATABASE` Google Sheet.
+4. Complete and verify the System Check and Agent Log writes.
+5. Stop with a precise limitation if the active Google connector is read-only.
+6. Begin finance-first onboarding only after capability is verified.
 
-Use the Google Sheet as the structured operational store and the configured Drive folder as the evidence store. Apply the approval gates in `PERMISSIONS.md` and the private overrides in `system.yaml`.
+Inside the configured COS folder, maintain files, Expenses, Budget, Recurring Costs, and other operational records autonomously. Ask before external communication, publication, spending, signing, access changes, deletion of evidence, or actions outside the folder.
 
-For every material operation:
-
-- Identify the target record.
-- Determine the required approval state.
-- Execute only within the granted scope.
-- Verify external writes.
-- Add an Agent Log entry.
-
-Do not copy private instance data back into the public template repository.
+Identity is optional. Never delay expense intake to collect a broad biography.

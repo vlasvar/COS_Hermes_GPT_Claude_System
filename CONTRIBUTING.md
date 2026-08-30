@@ -8,9 +8,12 @@ Contributions are welcome while the project is under private development and aft
 2. Put cross-platform behavior in `kernel/`; put provider-specific instructions in `adapters/`.
 3. Update `schema/sheets.json` before changing Sheet columns.
 4. Do not add another source of truth.
-5. Run:
+5. Rebuild the starter artifacts after changing schemas, instructions, or the Apps Script.
+6. Run:
 
 ```bash
+python -m pip install -r requirements-dev.txt
+python scripts/build_starter_kit.py
 python scripts/validate.py
 python -m unittest discover -s tests -v
 ```

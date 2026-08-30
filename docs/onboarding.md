@@ -1,66 +1,44 @@
-# Onboarding a private instance
+# Onboarding a finance-first private instance
 
-## 1. Create the private boundary
+The beginner path uses one downloadable folder and one bootstrap prompt.
 
-Generate a working folder outside this repository. The folder will contain completed profiles, resource identifiers, and private operating records.
+## 1. Upload the starter
 
-```bash
-python scripts/create_instance.py /path/to/private-cos --adapter hermes
-```
+1. Download `dist/COS_Finance_First_Starter.zip`.
+2. Extract it.
+3. Upload the complete `COS_Finance_First_Starter` folder to private Google Drive storage.
+4. Keep sharing set to Restricted.
 
-Use `chatgpt` or `claude` instead of `hermes` when appropriate. The target must be new or empty.
+## 2. Create the native operational store
 
-## 2. Provision the operational store
+Open `COS_DATABASE_TEMPLATE.xlsx` with Google Sheets, choose **File → Save as Google Sheets**, name the result `COS_DATABASE`, and keep it in the starter folder.
 
-Create a blank Google Sheet and run `templates/google-sheets/Code.gs`, or manually create the tabs from `schema/sheets.json`.
+A native Google Sheet cannot be packaged inside a ZIP. This conversion is the only required database-provisioning step. The Apps Script under `System/Advanced` remains an optional fallback.
 
-Create a private Drive folder for evidence. Grant only the minimum access needed by the chosen agent environment.
+## 3. Start the agent
 
-## 3. Confirm the generated kernel
+Open `01_COPY_THIS_PROMPT.txt`, replace the folder-link placeholder, and send the complete prompt to an agent that can access the private Google Drive folder.
 
-The generator installs these files into the private instance:
+The prompt grants Workspace Operator authority inside the COS folder. It does not grant authority for spending, external communication, publishing, permission changes, deletion, signing, or actions outside the folder.
 
-- `kernel/SYSTEM.md`
-- `kernel/CONTEXT.md`
-- `kernel/PERMISSIONS.md`
-- `kernel/WORKFLOWS.md`
+## 4. Verify capability before onboarding
 
-It also installs the selected agent instruction file under the filename expected by that environment.
+The agent must:
 
-## 4. Configure the private instance
+1. Read `00_START_HERE.md`.
+2. Find the native `COS_DATABASE` Sheet.
+3. Read `System Check`.
+4. Write and read back a harmless test value.
+5. Write and read back an Agent Log entry.
 
-Complete the generated:
+If the connector is read-only, the agent stops and explains the exact limitation. No prompt can create connector permissions that the platform does not expose.
 
-- `USER_PROFILE.md`
-- `system.yaml`
+## 5. Complete minimal finance onboarding
 
-Do not place credentials in either file.
+The agent asks one question at a time for primary currency, initial evidence period, finance scope, and budget period. Identity is optional.
 
-## 5. Choose an agent environment
+The user then uploads screenshots, receipts, statements, or exports to `Inbox/Expenses-and-Receipts`. The agent follows `System/FINANCE_WORKFLOW.md` to create provisional Expenses, identify Recurring Costs, propose a Budget, and generate the first report.
 
-Follow exactly one primary adapter first:
+## 6. Expand only after the first report
 
-- `adapters/hermes/README.md`
-- `adapters/chatgpt/README.md`
-- `adapters/claude/README.md`
-
-See `docs/profiles.md` for a side-by-side explanation of Hermes profiles, ChatGPT Projects, and Claude Projects.
-
-A second adapter can be added later to test portability.
-
-## 6. Calibrate permissions
-
-Start at level 1 (Suggest). Process the fictional demo inputs and inspect the proposed Sheet changes. Move to level 2 only after the classification and logging behavior is reliable.
-
-## 7. Run the acceptance test
-
-The instance is ready when it can:
-
-1. Process five mixed fictional inputs.
-2. Classify each input into canonical record types.
-3. Assign stable IDs.
-4. Produce precise Sheet changes.
-5. Stop at approval gates.
-6. Record material operations.
-7. Produce a weekly review.
-8. Repeat the exercise in another agent environment without changing the data model.
+Projects, Actions, Commitments, Decisions, and weekly Reviews remain available, but they do not delay the initial finance result.

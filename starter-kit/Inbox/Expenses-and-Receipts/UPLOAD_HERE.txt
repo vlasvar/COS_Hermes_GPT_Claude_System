@@ -1,0 +1,3 @@
+Place expense screenshots, receipts, exports, and statements in this folder.
+
+Keep filenames descriptive when convenient, but do not rename files if doing so could remove useful evidence. The agent should link each processed source from the Expenses tab and detect duplicates before creating records.

@@ -1,26 +1,44 @@
 # Permission model
 
-A private instance selects a default autonomy level and may override individual capabilities.
+The default private instance uses **Workspace Operator** authority. The agent may maintain the COS folder and Sheet without asking for approval for every internal write.
 
-| Level | Meaning |
-|---|---|
-| 0 — Read | Analyze only; make no changes. |
-| 1 — Suggest | Propose record changes and draft actions. |
-| 2 — Maintain | Update internal operational records; no external action. |
-| 3 — Approve | Prepare external actions and execute only after explicit approval. |
-| 4 — Delegate | Execute specifically delegated, reversible, low-risk workflows and log the result. |
+## Workspace Operator authority
 
-## Default approval gates
+Inside the configured COS folder, the agent may autonomously:
+
+- Read, create, organize, and update files and operational records
+- Process screenshots, receipts, and statements
+- Create and correct provisional Expenses
+- Maintain Budget and Recurring Cost records
+- Create internal Actions, Reviews, and reports
+- Link and organize evidence without deleting originals
+- Log and verify material writes
+
+The agent must test actual connector write capability before onboarding. Instruction-level authority cannot overcome a read-only connector.
+
+## Approval boundary
 
 Explicit approval is required for:
 
 - Sending external communications
 - Publishing or posting publicly
 - Spending, transferring, or committing money
-- Deleting records or source documents
-- Granting access or changing permissions
 - Signing or accepting legal terms
-- Disclosing personal or confidential information
-- Any action outside the configured delegation scope
+- Granting access or changing sharing permissions
+- Deleting records or original source documents
+- Disclosing personal or confidential information outside the workspace
+- Any action outside the configured COS folder or delegation scope
 
-Reading and drafting do not imply permission to execute. Access to a tool does not imply authorization to use it for every purpose.
+## Advanced autonomy levels
+
+The numeric levels remain available for advanced configurations but are not part of beginner onboarding.
+
+| Level | Meaning |
+|---|---|
+| 0 — Read | Analyze only; make no changes. |
+| 1 — Suggest | Propose record changes and draft actions. |
+| 2 — Maintain | Workspace Operator default; update internal records autonomously. |
+| 3 — Approve | Execute external actions after explicit approval. |
+| 4 — Delegate | Execute narrowly delegated external workflows and log results. |
+
+Tool access does not imply authority outside the configured workspace.

@@ -8,6 +8,7 @@ Give the user a clear operational view without requiring them to navigate raw Sh
 
 ## Suggested pages
 
+- **Money:** expenses, category totals, recurring costs, and budget variance
 - **Today:** due Actions, active Commitments, and top priorities
 - **Approvals:** operations waiting for explicit authorization
 - **Projects:** outcome, owner, status, next Action, and review date
@@ -29,6 +30,9 @@ The dashboard must not maintain a parallel task store. Every mutation targets th
 A dashboard adapter should expose:
 
 - `listToday()`
+- `listExpenses(period, status)`
+- `getBudget(period)`
+- `listRecurringCosts(status)`
 - `listPendingApprovals()`
 - `listProjects(status)`
 - `getRecord(type, id)`

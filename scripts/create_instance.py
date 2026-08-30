@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-KERNEL_FILES = ("SYSTEM.md", "CONTEXT.md", "PERMISSIONS.md", "WORKFLOWS.md")
+KERNEL_FILES = ("SYSTEM.md", "CONTEXT.md", "PERMISSIONS.md", "FINANCE_FIRST.md", "WORKFLOWS.md")
 ADAPTERS = {
     "hermes": ("adapters/hermes/HERMES.md", "AGENTS.md"),
     "chatgpt": ("adapters/chatgpt/PROJECT_INSTRUCTIONS.md", "PROJECT_INSTRUCTIONS.md"),

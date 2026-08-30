@@ -1,43 +1,35 @@
 # Private user profile
 
-> Complete this file only inside the private instance. Do not commit the completed version to the template repository.
+> This profile is optional. Complete it only inside a private instance and never commit the completed version to the template repository.
 
-## Identity and working context
+## Operational settings
+
+- Primary currency:
+- Timezone:
+- Finance scope: personal / household / business / combined
+- Budget period:
+- Preferred language:
+- Review day:
+
+## Optional identity
 
 - Preferred name:
-- Timezone:
-- Primary roles:
-- Current responsibilities:
+- Roles relevant to this workspace:
 
-## Communication preferences
+## Optional working preferences
 
 - Preferred response style:
-- Preferred language:
-- External communication rules:
-
-## Goals
-
-- Near-term outcomes:
-- Long-term outcomes:
-
-## Constraints
-
-- Time constraints:
-- Financial constraints:
-- Privacy constraints:
+- Expense categories:
+- Reporting preferences:
 - Accessibility requirements:
 
-## Standing decisions
+## Explicit delegation beyond Workspace Operator
 
-- Decision:
-- Rationale:
-- Revisit trigger:
-
-## Explicit delegation
-
-List only capabilities the agent may exercise without case-by-case approval.
+Workspace Operator authority already covers internal record maintenance. List only additional capabilities, with a clear scope and review date.
 
 - Capability:
 - Scope:
 - Limits:
-- Expiry or review date:
+- Review date:
+
+Do not store passwords, API keys, authentication codes, full payment-card numbers, government identifiers, or unnecessary sensitive information.

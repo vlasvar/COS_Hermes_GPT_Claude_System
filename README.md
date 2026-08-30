@@ -1,251 +1,229 @@
-# Chief of Staff System
+# Chief of Staff System — Finance-First Starter
 
-A user-owned, model-agnostic operating system for working with an AI Chief of Staff.
+A user-owned, model-agnostic Chief of Staff workspace that begins with something concrete: understanding expenses and building a useful budget from screenshots, receipts, and statements.
 
-The system combines:
-
-- **Google Sheets** for structured operational state
-- **Google Drive** for source documents and evidence
-- **Markdown** for policies, context, workflows, and reviews
-- **Agent adapters** for Hermes, ChatGPT Projects, and Claude Projects
-- An optional, separate **GPT Sites dashboard concept** as a replaceable presentation layer
-
-> This repository contains only generic templates, schemas, instructions, and fictional examples. Never commit a real user's data, credentials, private documents, sheet exports, or conversation history.
-
-## What this is
-
-This is not a prompt collection. It is a small operating kernel with a consistent data model, permission rules, workflow, and audit trail. The AI model can change without forcing the user to rebuild the system.
+The intended experience is:
 
 ```text
-Experience       Chat / optional dashboard
-Agent adapter    Hermes | ChatGPT Project | Claude Project
-Kernel           Context | policy | permissions | workflows
-User-owned data  Google Sheets | Drive | Markdown
+Download ZIP → upload one folder → convert one workbook → paste one folder link → onboarding starts
 ```
 
-## Core operating loop
+No personal case study or private user data is included in this repository. Every example and template is generic and publication-safe.
+
+## Download the ready-to-use starter
+
+**[Download COS Finance-First Starter ZIP](dist/COS_Finance_First_Starter.zip?raw=1)**
+
+The ZIP already contains:
+
+- A styled finance-first workbook
+- The complete agent instructions
+- The one prompt the user sends
+- Expense screenshot and document inboxes
+- Evidence and report folders
+- Optional profile fields
+- An advanced Google Apps Script fallback
+
+## Five-step setup
+
+### 1. Download and extract
+
+Download the starter ZIP above and extract it. You will get one folder named:
 
 ```text
-Capture → Interpret → Classify → Propose → Approve → Execute → Record → Review
+COS_Finance_First_Starter
 ```
 
-## Beginner setup guide — no coding required
+### 2. Upload one folder
 
-If you can download a folder and copy and paste text, you can set this up. Take it one step at a time. Nothing in this guide sends messages, spends money, or publishes anything.
+Upload the entire extracted folder to a private Google Drive folder. Keep access set to **Restricted**. Do not make it public.
 
-### Before you start
+### 3. Create the native Google Sheet
 
-You need:
+A native Google Sheet cannot exist inside a downloadable ZIP, so one conversion is required:
 
-- A Google account
-- One AI assistant: **ChatGPT**, **Claude**, or **Hermes**
-- About 20 minutes
+1. Inside Google Drive, open `COS_DATABASE_TEMPLATE.xlsx` with Google Sheets.
+2. Choose **File → Save as Google Sheets**.
+3. Name the new native Sheet `COS_DATABASE`.
+4. Keep it in the uploaded starter folder.
 
-For the easiest first setup, use a **ChatGPT Project** or **Claude Project**. Hermes gives you more control but requires installing the Hermes application and copying a few commands.
+The original `.xlsx` remains a clean template. The new native Sheet becomes the operational source of truth.
 
-### Part 1 — Download the kit
+### 4. Copy the folder link into the supplied prompt
 
-1. At the top of this GitHub page, click the green **Code** button.
-2. Click **Download ZIP**.
-3. Open your Downloads folder.
-4. Double-click the downloaded ZIP file to unzip it.
-5. You should now see a folder named `COS_Hermes_GPT_Claude_System`.
+1. Open `01_COPY_THIS_PROMPT.txt`.
+2. Copy the private Google Drive folder link.
+3. Replace `[PASTE GOOGLE DRIVE FOLDER LINK HERE]` in the prompt.
+4. Send the complete prompt to the AI agent.
 
-Keep this downloaded folder as the clean template. Your personal information should go into your private AI Project and Google Sheet, not back into this GitHub repository.
+That is the only prompt the user needs to prepare.
 
-### Part 2 — Create your Google Sheet
+### 5. Let the system test itself
 
-The Sheet is the system's notebook. It holds projects, actions, commitments, decisions, reviews, and the agent activity log.
+Before asking personal questions, the agent must:
 
-1. Open [Google Sheets](https://sheets.google.com).
-2. Create a **Blank spreadsheet**.
-3. Rename it to **My Chief of Staff**.
-4. In the top menu, click **Extensions**, then **Apps Script**.
-5. A new Apps Script page will open. Delete the small example function already shown there.
-6. In the downloaded kit, open `templates`, then `google-sheets`, then `Code.gs`. If your computer asks which app to use, choose Notepad on Windows or TextEdit on macOS.
-7. Select everything in `Code.gs` and copy it.
-8. Paste it into the Apps Script editor.
-9. Click the **Save** icon.
-10. Near the top, choose `provisionChiefOfStaffSystem` from the function menu.
-11. Click **Run**.
-12. Google may ask you to choose your account and approve access. Read the request before accepting it. The included script declares `@OnlyCurrentDoc` so it is limited to the current spreadsheet. Stop if the permission screen asks for something unrelated.
-13. Return to your Google Sheet.
+1. Find and read `00_START_HERE.md`.
+2. Find the native `COS_DATABASE` Sheet.
+3. Read `System Check`.
+4. Write a harmless test value.
+5. Read the value back.
+6. Add an `Agent Log` entry.
+7. Read the log entry back.
 
-You should now see these tabs:
+If the connector is read-only, the agent must explain the exact limitation and stop. **A prompt cannot grant write access that the active connector or AI plan does not provide.**
 
-`Inbox`, `Projects`, `Actions`, `Commitments`, `Decisions`, `Contacts`, `Reviews`, and `Agent Log`.
+Use an agent environment with read/write access to the private Google Drive folder and Google Sheet for full automation. With a read-only connector, the system can still analyse and propose rows, but it cannot honestly maintain the database itself.
 
-If you see those eight tabs, the Sheet is ready. The script creates headers and formatting only; it does not add personal information or send data anywhere.
+## What happens during onboarding
 
-Now create the evidence folder:
+The first mission is finance, not biography.
 
-1. Open [Google Drive](https://drive.google.com).
-2. Click **New**, then **New folder**.
-3. Name it **Chief of Staff Evidence**.
-4. Leave its access set to **Restricted**. Do not make it public.
+The agent asks one short question at a time:
 
-This folder is where you can later keep documents that support a project, commitment, or decision. You do not need to put anything in it yet.
+1. What is the primary currency?
+2. Which period should be examined first?
+3. Is the scope personal, household, business, or combined?
+4. Should the initial budget be monthly or use another period?
 
-### Part 3 — Choose your AI assistant
+The user's name and other identity details are optional.
 
-Pick **one** option for your first setup. You can add another assistant later without rebuilding the Sheet.
+The agent then asks the user to place expense screenshots, receipts, exports, or statements in:
 
-<details>
-<summary><strong>Option A: ChatGPT Project — easiest for most people</strong></summary>
+```text
+Inbox/Expenses-and-Receipts
+```
 
-1. Open ChatGPT.
-2. Create a new **Project**.
-3. Name it **My Chief of Staff**.
-4. Open `adapters/chatgpt/PROJECT_INSTRUCTIONS.md` from the downloaded kit.
-5. Copy all its text and paste it into the Project's instruction field.
-6. Upload these six files to the Project:
-   - `kernel/SYSTEM.md`
-   - `kernel/CONTEXT.md`
-   - `kernel/PERMISSIONS.md`
-   - `kernel/WORKFLOWS.md`
-   - `templates/profile/USER_PROFILE.md`
-   - `config/system.example.yaml`
-7. Also upload `examples/demo-inputs.md` so you can test the system safely.
+It extracts visible information, detects duplicates, writes provisional Expense records, links the source evidence, and records confidence. It never guesses a missing amount, date, merchant, or currency.
 
-Do not upload passwords, API keys, bank documents, identity documents, or other secrets.
+The first report covers:
 
-</details>
+- Total recorded expenses
+- Spending by category
+- Recurring costs and possible subscriptions
+- Fixed versus variable spending
+- Missing or ambiguous information
+- A proposed budget
+- The most useful evidence to provide next
 
-<details>
-<summary><strong>Option B: Claude Project</strong></summary>
+## Default agent authority
 
-1. Open Claude.
-2. Create a new **Project**.
-3. Name it **My Chief of Staff**.
-4. Open `adapters/claude/CLAUDE.md` from the downloaded kit.
-5. Copy all its text into the Project instructions.
-6. Add these six files to the Project Knowledge:
-   - `kernel/SYSTEM.md`
-   - `kernel/CONTEXT.md`
-   - `kernel/PERMISSIONS.md`
-   - `kernel/WORKFLOWS.md`
-   - `templates/profile/USER_PROFILE.md`
-   - `config/system.example.yaml`
-7. Also add `examples/demo-inputs.md` for the safe test.
+The default role is **Workspace Operator**.
 
-Do not upload passwords, API keys, bank documents, identity documents, or other secrets.
+Inside the configured COS folder, the agent may autonomously:
 
-</details>
+- Read and organize files
+- Create and update Sheet records
+- Process financial screenshots and documents
+- Create provisional Expenses
+- Maintain Budget and Recurring Cost records
+- Create reports and internal Actions
+- Correct verified internal errors
+- Log and verify material writes
 
-<details>
-<summary><strong>Option C: Hermes profile — more control</strong></summary>
+It does not need approval for every routine internal update.
 
-First install and configure [Hermes Agent](https://hermes-agent.nousresearch.com/docs). Then open a terminal in the downloaded repository and run:
+The agent must ask before:
+
+- Spending or transferring money
+- Sending external communications
+- Publishing information
+- Signing or accepting terms
+- Changing sharing permissions
+- Deleting original evidence or records
+- Acting outside the configured COS folder
+
+The advanced numeric permission levels still exist, but beginners do not need to configure them.
+
+## Starter folder structure
+
+```text
+COS_Finance_First_Starter/
+├── 00_START_HERE.md
+├── 01_COPY_THIS_PROMPT.txt
+├── COS_DATABASE_TEMPLATE.xlsx
+├── Inbox/
+│   ├── Expenses-and-Receipts/
+│   └── Other-Documents/
+├── Evidence/
+├── Reports/
+└── System/
+    ├── AGENT_RULES.md
+    ├── FINANCE_WORKFLOW.md
+    ├── DATA_DICTIONARY.md
+    ├── OPTIONAL_PROFILE.md
+    └── Advanced/
+        └── OPTIONAL_Code.gs
+```
+
+## Database tabs
+
+### Finance-first
+
+- `System Check`
+- `Expenses`
+- `Budget`
+- `Recurring Costs`
+
+### Broader Chief of Staff system
+
+- `Inbox`
+- `Projects`
+- `Actions`
+- `Commitments`
+- `Decisions`
+- `Contacts`
+- `Reviews`
+- `Agent Log`
+
+The Google Sheet stores structured operational state. Google Drive stores screenshots, documents, and evidence. Reports are derived views, not another database.
+
+## Supported agent environments
+
+The bootstrap folder is model-agnostic. It can be used with Hermes, ChatGPT Projects, Claude Projects, Gemini, or another agent environment **when that environment can access the folder and perform the required Sheet operations**.
+
+Platform-specific advanced setup remains available:
+
+- [Hermes profile](adapters/hermes/README.md)
+- [ChatGPT Project](adapters/chatgpt/README.md)
+- [Claude Project](adapters/claude/README.md)
+- [Agent profiles and projects](docs/profiles.md)
+
+## Optional dashboard
+
+After the core system works, an optional dashboard can display Today, Approvals, Projects, Risks, Decisions, Reviews, and Agent Activity.
+
+See [GPT Sites dashboard concept](docs/dashboard-gpt-sites.md). The dashboard is a replaceable view and never a second source of truth.
+
+## Privacy boundary
+
+Treat every tracked repository file as public, even while development occurs privately.
+
+Never commit:
+
+- Completed user profiles
+- Real expense records or screenshots
+- Private Google links
+- Email addresses or account identifiers
+- API keys, tokens, cookies, or credentials
+- Financial balances, health information, or identity documents
+- Raw private conversations
+
+See [Privacy and public-repository rules](docs/privacy.md) and [Security policy](SECURITY.md).
+
+## Build the starter package
+
+For contributors:
 
 ```bash
-python scripts/create_instance.py ../my-private-cos --adapter hermes
-hermes profile create chief-of-staff --description "Maintains my private Chief of Staff system."
-hermes profile use chief-of-staff
-hermes --in ../my-private-cos
+python -m pip install -r requirements-dev.txt
+python scripts/build_starter_kit.py
 ```
 
-The first command creates a separate private workspace. The next commands create and start an isolated Hermes profile. Full details are in the [Hermes adapter guide](adapters/hermes/README.md).
+This regenerates:
 
-</details>
-
-### Part 4 — Let the assistant set up your private profile
-
-Open your new AI Project or Hermes profile and send this message:
-
-```text
-Help me set up this Chief of Staff System. Read the uploaded kernel, profile template, configuration template, and permission rules first.
-
-Interview me one question at a time. Use my answers to prepare a completed USER_PROFILE.md and system.yaml. Do not ask for or store passwords, API keys, bank details, identity numbers, or other secrets. Keep the permission level at 1 (Suggest). Do not send messages, publish anything, delete anything, or spend money.
-```
-
-Answer one question at a time. When the interview is finished:
-
-1. Ask the assistant to give you the completed `USER_PROFILE.md` and `system.yaml` files.
-2. Download those two files.
-3. In ChatGPT or Claude, remove the blank `USER_PROFILE.md` and `system.example.yaml` files, then upload the completed `USER_PROFILE.md` and `system.yaml`. In Hermes, save the completed files in the private workspace created earlier.
-4. Keep these completed files private. Never add them to this public template repository.
-
-When the assistant asks about storage, give it the links to your private Google Sheet and restricted evidence folder. These links identify the correct private resources; they do not make those resources public. If your AI plan does not support a Google Sheets connection, that is okay: the assistant can operate in **Suggest** mode and tell you exactly which rows to add manually.
-
-### Part 5 — Run a safe test
-
-Do not begin with important personal information. Start with the fictional examples included in the kit.
-
-Send this message:
-
-```text
-Process the first fictional item in demo-inputs.md. Stay at permission level 1. Show me the classification, proposed Sheet changes, approval requirement, evidence, and Agent Log entry. Do not perform any external action.
-```
-
-A correct result should:
-
-- Classify the information
-- Propose one or more Sheet records
-- Use stable record IDs
-- Tell you whether approval is required
-- Avoid sending or publishing anything
-- Record the proposed operation in `Agent Log`
-
-Repeat the test with all five fictional inputs. When the results look correct, your basic system is ready.
-
-### Part 6 — Start using it carefully
-
-Give the system one real item at a time, such as:
-
-- A project you want to organize
-- A commitment you need to remember
-- A decision and the reason behind it
-- A task with a due date
-
-Keep permission level 1 until you trust the classifications and proposed changes. Connecting a tool does not automatically give the assistant permission to use it.
-
-### The four rules to remember
-
-1. **The Google Sheet is the operational source of truth.**
-2. **Google Drive holds source documents and evidence.**
-3. **Your AI Project or Hermes profile provides the intelligence and conversation.**
-4. **The optional dashboard is only a view, never another database.**
-
-> Stuck? Do not guess. Tell your assistant which numbered step you reached and copy the exact error message. Do not include passwords or secret keys.
-
-After the core system works, you can explore the optional [GPT Sites dashboard concept](docs/dashboard-gpt-sites.md). The dashboard is a bonus, not a setup requirement.
-
-## Technical quick start
-
-1. Read [Privacy and public-repository rules](docs/privacy.md).
-2. Generate a private workspace outside this repository:
-
-   ```bash
-   python scripts/create_instance.py /path/to/private-cos --adapter hermes
-   ```
-
-   Replace `hermes` with `chatgpt` or `claude` when appropriate.
-3. Create the Google Sheet with [`templates/google-sheets/Code.gs`](templates/google-sheets/Code.gs), or reproduce the schema in [`schema/sheets.json`](schema/sheets.json).
-4. Complete `USER_PROFILE.md` and `system.yaml` in the generated private workspace.
-5. Configure the selected agent environment using [Agent profiles and projects](docs/profiles.md):
-   - [Hermes profile](adapters/hermes/README.md)
-   - [ChatGPT Project](adapters/chatgpt/README.md)
-   - [Claude Project](adapters/claude/README.md)
-6. Process the fictional inputs in [`examples/demo-inputs.md`](examples/demo-inputs.md).
-7. Run the first review using [`templates/reviews/WEEKLY_REVIEW.md`](templates/reviews/WEEKLY_REVIEW.md).
-
-Full instructions: [Onboarding](docs/onboarding.md).
-
-## Repository map
-
-```text
-kernel/       Canonical terminology, rules, permissions, and workflows
-schema/       Machine-readable data contracts
-adapters/     Thin setup layers for each supported agent environment
-templates/    Google Sheets, private profile, and review templates
-docs/         Architecture, privacy, onboarding, and dashboard concept
-examples/     Fictional test inputs only
-scripts/      Private-instance generation and repository validation
-```
-
-## Core vs optional
-
-The mandatory core is deliberately small: Inbox, Projects, Actions, Commitments, Decisions, Contacts, Reviews, and Agent Log. Finance, CRM, content, health, and household workflows should be optional modules rather than additions to the kernel.
+- `starter-kit/COS_DATABASE_TEMPLATE.xlsx`
+- `starter-kit/System/Advanced/OPTIONAL_Code.gs`
+- `dist/COS_Finance_First_Starter.zip`
 
 ## Validate the repository
 
@@ -254,9 +232,20 @@ python scripts/validate.py
 python -m unittest discover -s tests -v
 ```
 
-## Status
+Validation checks the public template, schemas, workbook, distributable ZIP, links, private-resource patterns, and common secret formats.
 
-Early private build. The repository is being developed as if it were already public: generic examples only, no personal case study, and no private instance data.
+## Architecture
+
+The beginner experience is intentionally small, while the internal architecture remains portable:
+
+```text
+Experience       One folder link and one bootstrap prompt
+Agent            Hermes | ChatGPT | Claude | Gemini | other
+Kernel           Finance-first workflow | authority | reliability
+User-owned data  Google Sheets | Google Drive | Markdown
+```
+
+More detail: [Architecture](docs/architecture.md).
 
 ## License
 

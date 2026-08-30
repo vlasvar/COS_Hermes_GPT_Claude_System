@@ -1,20 +1,15 @@
 # ChatGPT Project adapter
 
-A ChatGPT Project can act as the persistent workspace for one private Chief of Staff instance. Project instructions and uploaded knowledge provide continuity; the Google Sheet remains the operational store.
+A ChatGPT Project can operate the finance-first starter when its active Google connector can read and write the private folder and native Google Sheet.
 
 ## Setup
 
-1. Create a new private ChatGPT Project.
+1. Create a private ChatGPT Project.
 2. Use `PROJECT_INSTRUCTIONS.md` as the Project instructions.
-3. Add the canonical kernel files as Project knowledge:
-   - `kernel/SYSTEM.md`
-   - `kernel/CONTEXT.md`
-   - `kernel/PERMISSIONS.md`
-   - `kernel/WORKFLOWS.md`
-4. Add a privately completed `USER_PROFILE.md` and `system.yaml` to the Project, subject to the user's data policy.
-5. Connect Google Drive or provide Sheet access only through an approved integration with the minimum necessary scope.
-6. Test with `examples/demo-inputs.md` before adding private data.
+3. Connect Google Drive with the minimum necessary scope.
+4. Paste the completed prompt from `starter-kit/01_COPY_THIS_PROMPT.txt`.
+5. Require the System Check write-and-read-back test before onboarding.
 
-## Limitations
+The starter folder contains the canonical instructions. A Project chat is not the operational database.
 
-A Project's conversation history is not the operational database. Material status changes must be written to the Sheet and logged. If the environment cannot write or verify the Sheet, the agent should return a proposed change set for the user to apply.
+If the connector is read-only, ChatGPT must say so and stop. It may offer proposed rows for manual entry, but it must not claim that the Sheet was updated.

@@ -6,6 +6,8 @@ This file defines the canonical vocabulary. It contains no platform-specific imp
 
 **Instance** — A private deployment owned by one person or organization. It contains live data and is never committed to this template repository.
 
+**Workspace Operator** — The default agent role with authority to maintain files and records inside the configured COS folder without repeated approval prompts. It has no implied authority outside that folder.
+
 **Kernel** — The model-agnostic rules, terminology, permissions, and workflows shared by every agent adapter.
 
 **Agent adapter** — A thin set of instructions that loads the kernel into a specific agent environment without redefining it.
@@ -13,6 +15,16 @@ This file defines the canonical vocabulary. It contains no platform-specific imp
 **Operational store** — Structured records describing current work. The default implementation is Google Sheets.
 
 **Evidence store** — Source documents, files, and links supporting operational records. The default implementation is Google Drive.
+
+**Expense** — A structured record of money spent, linked to evidence when available and marked Provisional until sufficiently verified.
+
+**Budget** — Planned and actual spending for a defined period and category.
+
+**Recurring cost** — An expense expected to repeat, supported by explicit evidence or a repeated pattern.
+
+**Provisional record** — A record created from incomplete or uncertain evidence. It preserves visible facts, confidence, and unresolved questions without guessing.
+
+**Capability check** — A verified read, write, and read-back test that establishes what the active connector can actually do before onboarding continues.
 
 **Inbox item** — Unprocessed information that has entered the system.
 

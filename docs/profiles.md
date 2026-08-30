@@ -1,48 +1,33 @@
 # Agent profiles and projects
 
-A private Chief of Staff instance needs a persistent agent workspace. The workspace supplies continuity and tools; it does not replace the operational store.
+The beginner product is one Drive folder plus one bootstrap prompt. Profiles and Projects are optional containers for persistent tools and conversation, not additional databases.
 
-| Environment | Persistent workspace | Instruction entry point | Canonical state |
+| Environment | Persistent workspace | Bootstrap | Canonical state |
 |---|---|---|---|
-| Hermes | Isolated Hermes profile plus private instance folder | `AGENTS.md` | Google Sheet |
-| ChatGPT | Private ChatGPT Project | Project instructions and uploaded knowledge | Google Sheet |
-| Claude | Private Claude Project | Project instructions and Project Knowledge | Google Sheet |
+| Hermes | Isolated Hermes profile | Drive folder link and supplied prompt | `COS_DATABASE` |
+| ChatGPT | Private ChatGPT Project | Drive folder link and supplied prompt | `COS_DATABASE` |
+| Claude | Private Claude Project | Drive folder link and supplied prompt | `COS_DATABASE` |
+| Other agents | Platform-specific workspace | Drive folder link and supplied prompt | `COS_DATABASE` |
 
-## Generate a private instance
+## Required capability
 
-Run from the template repository:
+The environment must be able to read the starter folder and write to the native Google Sheet for full automation. The bootstrap capability test verifies this before onboarding.
 
-```bash
-python scripts/create_instance.py /path/to/private-cos --adapter hermes
-```
+Instructions cannot upgrade a read-only connector. When write access is unavailable, the agent must stop and identify the limitation rather than pretending the database was updated.
 
-Supported adapter values are `hermes`, `chatgpt`, and `claude`. The target must be outside this repository and must be new or empty.
+## Authority
 
-The generator copies the canonical kernel, blank profile, example configuration, and the selected adapter instructions. It never copies example conversations or creates credentials.
+The default Workspace Operator may maintain files and records inside the COS folder. Spending, external communication, publication, signing, access changes, deletion of evidence, and actions outside the folder require approval.
 
-## Hermes profile
-
-Use a dedicated profile to isolate configuration, memory, sessions, skills, and credentials from other Hermes roles.
+## Optional Hermes isolation
 
 ```bash
-hermes profile create chief-of-staff --description "Maintains the private Chief of Staff operating system."
-hermes profile show chief-of-staff
+hermes profile create chief-of-staff --description "Operates a private finance-first Chief of Staff workspace."
 hermes profile use chief-of-staff
-hermes --in /path/to/private-cos
 ```
 
-`hermes profile use` changes the sticky default profile. Return to the original profile afterward when appropriate, for example with `hermes profile use default`.
-
-Hermes auto-loads `AGENTS.md` from the working-directory hierarchy. The generator therefore installs the Hermes adapter as `AGENTS.md` in the private instance root.
-
-## ChatGPT Project
-
-Create one private Project per Chief of Staff instance. Paste `PROJECT_INSTRUCTIONS.md` into the Project instructions and upload the generated kernel and private profile files as Project knowledge. Grant Google access only through an approved, least-privilege integration.
-
-## Claude Project
-
-Create one private Project per Chief of Staff instance. Use `CLAUDE.md` as the Project instructions and add the generated kernel and private profile files to Project Knowledge. Use an approved Google connector when available.
+Keep secrets in the platform's approved secret store, never in the starter folder.
 
 ## Portability test
 
-A profile is correctly configured when the same fictional inbox items produce equivalent canonical record changes in two supported environments without changing the Sheet schema, record IDs, approval policy, or evidence links.
+A workspace is portable when two supported agents can process the same fictional evidence into equivalent canonical records without changing IDs, evidence links, statuses, or the approval boundary.
