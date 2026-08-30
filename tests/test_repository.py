@@ -37,6 +37,7 @@ class RepositoryContractTests(unittest.TestCase):
 
     def test_google_sheets_provisioner_matches_schema(self):
         script = (ROOT / "templates/google-sheets/Code.gs").read_text(encoding="utf-8")
+        self.assertIn("@OnlyCurrentDoc", script)
         self.assertNotIn(".clear()", script)
         for tab in self.schema["tabs"]:
             with self.subTest(tab=tab["name"]):

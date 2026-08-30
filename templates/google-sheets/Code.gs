@@ -1,5 +1,6 @@
 /**
  * Chief of Staff System — Google Sheets provisioner.
+ * @OnlyCurrentDoc
  *
  * Usage:
  * 1. Create a blank Google Sheet.
