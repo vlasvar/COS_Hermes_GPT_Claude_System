@@ -1,6 +1,6 @@
 # ADR 0002: Use finance-first onboarding with Workspace Operator authority
 
-- Status: Accepted
+- Status: Accepted; onboarding-question detail amended by ADR 0003
 - Date: 2026-08-30
 
 ## Context
@@ -19,7 +19,7 @@ Make Workspace Operator the default authority. It may maintain files and records
 
 Require a verified Sheet and Agent Log write-and-read-back capability test before onboarding. Stop honestly when the active connector is read-only.
 
-Begin onboarding with currency, evidence period, finance scope, and budget period. Treat identity and biography as optional.
+The original onboarding questions were currency, evidence period, finance scope, and budget period. ADR 0003 replaces that question sequence with plain-English financial intake while retaining optional identity.
 
 ## Consequences
 

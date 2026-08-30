@@ -13,7 +13,7 @@ If the connector is read-only, explain the limitation and stop. Do not substitut
 
 ## 2. Complete finance-first onboarding
 
-Follow `FINANCE_FIRST.md`. Ask only for primary currency, initial period, finance scope, and budget period before requesting evidence. Identity is optional.
+Follow `FINANCE_FIRST.md`. Ask for one plain-English description of income and expenses, including amounts, dates, recurrence, and currency when unclear. Infer the useful reporting period from the data instead of asking for one before records exist. Write and verify Income, Expenses, and Recurring Costs rows. Evidence and identity are optional.
 
 ## 3. Process an inbox item
 

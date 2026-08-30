@@ -66,6 +66,7 @@ function seedSystemCheck_(sheet) {
 function getChiefOfStaffSchema_() {
   return [
     {name: 'System Check', columns: ['Check ID','Capability','Status','Tested At','Details']},
+    {name: 'Income', columns: ['Income ID','Date','Source','Description','Amount','Currency','Frequency','Next Expected Date','Confidence','Status','Evidence Link','Notes','Updated At']},
     {name: 'Expenses', columns: ['Expense ID','Date','Merchant','Description','Amount','Currency','Category','Payment Method','Recurrence','Confidence','Status','Source Link','Notes','Updated At']},
     {name: 'Budget', columns: ['Budget ID','Period','Category','Planned Amount','Currency','Actual Amount','Variance','Status','Updated At']},
     {name: 'Recurring Costs', columns: ['Recurring ID','Merchant','Description','Amount','Currency','Frequency','Next Expected Date','Category','Status','Source Link','Updated At']},

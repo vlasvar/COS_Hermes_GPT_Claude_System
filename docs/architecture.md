@@ -24,7 +24,7 @@ Keep the system portable across agent platforms while retaining one operational 
 
 The kernel requires tabular records matching `schema/sheets.json`. Google Sheets is the first adapter because it is inspectable and accessible to nontechnical users. A future database adapter must preserve stable IDs, links, timestamps, and auditability.
 
-Finance-first tabs lead the schema so onboarding can produce immediate value. Broader Chief of Staff records remain available without delaying the initial expense and budget baseline.
+Finance-first tabs lead the schema so onboarding can produce immediate value from plain-English Income, Expenses, and Recurring Costs before evidence is provided. Broader Chief of Staff records remain available without delaying the initial cash-flow and budget baseline.
 
 ### Agent seam
 

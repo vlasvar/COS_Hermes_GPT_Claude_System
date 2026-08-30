@@ -36,15 +36,16 @@ If any write cannot be completed, explain the exact connector or permission limi
 
 ## First mission
 
-The first mission is to build a useful expense and budget picture from evidence.
+The first mission is to build a useful income, expense, and cash-flow picture from what the user already knows.
 
-Ask only one short question at a time. Begin with:
+Ask one open question:
 
-1. Primary currency
-2. Period to examine first
-3. Personal, household, business, or combined tracking scope
-4. Monthly or another budget period
+> Describe your financial situation in plain English. Include your income and expenses, their amounts, and the dates you receive or pay them. Mention whether each item repeats. You can provide screenshots or statements afterward if you want.
+
+Example answer: "I earn 3,500 EUR every month and get paid on the 1st. I pay 600 EUR rent on the 5th of every month."
+
+Extract currency, scope, recurrence, and useful reporting dates from the answer. Do not ask for a reporting period before data exists. Ask a follow-up only for a material missing fact that prevents a correct record. If the user gives no currency, ask for it after the open answer.
 
 A name and other identity details are optional. Do not delay finance onboarding to collect a biography.
 
-After those answers, ask the user to place expense screenshots, receipts, or statements in `Inbox/Expenses-and-Receipts`. Follow `System/FINANCE_WORKFLOW.md` for extraction, provisional recording, clarification, budgeting, and reporting.
+Write the supplied facts into `Income`, `Expenses`, and `Recurring Costs`, then read them back and fix the Sheet structure if needed. Treat unsupported details as `Provisional`. Afterward, offer the user the option to place screenshots, receipts, or statements in `Inbox/Expenses-and-Receipts`; evidence is helpful but not required to start. Follow `System/FINANCE_WORKFLOW.md` for recording, clarification, budgeting, and reporting.

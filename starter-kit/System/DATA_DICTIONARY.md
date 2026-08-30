@@ -5,6 +5,7 @@ The native Google Sheet named `COS_DATABASE` is the operational source of truth.
 ## Finance-first tabs
 
 - **System Check:** Connector read/write capability and verification results.
+- **Income:** Received or expected income, including amount, date, frequency, and source when known.
 - **Expenses:** Individual expense records extracted from evidence or entered by the user.
 - **Budget:** Planned and actual amounts by period and category.
 - **Recurring Costs:** Repeating expenses and possible subscriptions.

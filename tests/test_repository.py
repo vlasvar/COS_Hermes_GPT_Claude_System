@@ -51,7 +51,7 @@ class RepositoryContractTests(unittest.TestCase):
 
     def test_finance_tabs_lead_the_schema(self):
         names = [tab["name"] for tab in self.schema["tabs"]]
-        self.assertEqual(names[:4], ["System Check", "Expenses", "Budget", "Recurring Costs"])
+        self.assertEqual(names[:5], ["System Check", "Income", "Expenses", "Budget", "Recurring Costs"])
 
     def test_starter_workbook_matches_schema(self):
         workbook_path = ROOT / "starter-kit" / "COS_DATABASE_TEMPLATE.xlsx"
@@ -92,6 +92,7 @@ class RepositoryContractTests(unittest.TestCase):
             )
         workbook = load_workbook(io.BytesIO(workbook_bytes), read_only=True)
         self.assertIn("Expenses", workbook.sheetnames)
+        self.assertIn("Income", workbook.sheetnames)
         self.assertIn("Budget", workbook.sheetnames)
 
     def test_bootstrap_prompt_requires_verified_write_capability(self):
@@ -101,6 +102,28 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertIn("read it back", prompt.lower())
         self.assertIn("Workspace Operator", prompt)
         self.assertIn("identity details are optional", prompt.lower())
+
+    def test_onboarding_starts_with_plain_english_finances(self):
+        start_here = (ROOT / "starter-kit" / "00_START_HERE.md").read_text(encoding="utf-8")
+        workflow = (ROOT / "starter-kit" / "System" / "FINANCE_WORKFLOW.md").read_text(
+            encoding="utf-8"
+        )
+        kernel = (ROOT / "kernel" / "FINANCE_FIRST.md").read_text(encoding="utf-8")
+        combined = "\n".join((start_here, workflow, kernel)).lower()
+        self.assertIn("plain english", combined)
+        self.assertIn("income", combined)
+        self.assertIn("expenses", combined)
+        self.assertIn("dates", combined)
+        self.assertIn("do not ask for a reporting period before data exists", combined)
+        self.assertNotIn("which period should be examined first", combined)
+
+    def test_readme_documents_claude_composio_workaround(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn("Claude + Composio", readme)
+        self.assertIn("not the default agent or the main setup path", readme)
+        self.assertIn("Install for Claude & Cowork", readme)
+        self.assertIn("docs/images/composio-claude-cowork-connector.png", readme)
+        self.assertTrue((ROOT / "docs" / "images" / "composio-claude-cowork-connector.png").is_file())
 
     def test_optional_apps_script_in_starter_matches_template(self):
         source = (ROOT / "templates" / "google-sheets" / "Code.gs").read_bytes()

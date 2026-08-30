@@ -1,8 +1,9 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "id_format": "<TYPE>-<YYYYMMDD>-<4 digits>",
   "tabs": [
     {"name":"System Check","key":"Check ID","columns":["Check ID","Capability","Status","Tested At","Details"]},
+    {"name":"Income","key":"Income ID","columns":["Income ID","Date","Source","Description","Amount","Currency","Frequency","Next Expected Date","Confidence","Status","Evidence Link","Notes","Updated At"]},
     {"name":"Expenses","key":"Expense ID","columns":["Expense ID","Date","Merchant","Description","Amount","Currency","Category","Payment Method","Recurrence","Confidence","Status","Source Link","Notes","Updated At"]},
     {"name":"Budget","key":"Budget ID","columns":["Budget ID","Period","Category","Planned Amount","Currency","Actual Amount","Variance","Status","Updated At"]},
     {"name":"Recurring Costs","key":"Recurring ID","columns":["Recurring ID","Merchant","Description","Amount","Currency","Frequency","Next Expected Date","Category","Status","Source Link","Updated At"]},

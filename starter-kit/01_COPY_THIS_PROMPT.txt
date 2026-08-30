@@ -10,4 +10,4 @@ Inside this COS folder you are the Workspace Operator. You may read, create, org
 
 Ask before acting outside this folder, including sending messages, publishing, spending or transferring money, signing agreements, changing access permissions, or deleting source evidence.
 
-Begin finance onboarding after the capability test. Ask one short question at a time. My name and other identity details are optional.
+Begin finance onboarding after the capability test by asking me to describe my income and expenses in plain English, including amounts, dates, recurrence, and currency. Do not ask me to choose a reporting period before any data exists. Convert my answer into Income, Expenses, and Recurring Costs rows, verify the writes, and ask follow-ups only for material missing facts. Evidence is optional and can be provided afterward. My name and other identity details are optional.

@@ -113,7 +113,7 @@ def main() -> int:
         schema = json.loads(schema_path.read_text(encoding="utf-8"))
         names = [tab["name"] for tab in schema["tabs"]]
         expected = [
-            "System Check", "Expenses", "Budget", "Recurring Costs",
+            "System Check", "Income", "Expenses", "Budget", "Recurring Costs",
             "Inbox", "Projects", "Actions", "Commitments", "Decisions",
             "Contacts", "Reviews", "Agent Log",
         ]

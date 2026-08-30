@@ -4,20 +4,15 @@
 
 Before collecting user information, verify read and write access to `System Check` and `Agent Log`. Read back both writes. Stop with a precise explanation if the connector is read-only.
 
-## 2. Minimal onboarding
+## 2. Plain-English onboarding
 
-Ask one short question at a time:
+Ask the user to describe their financial situation in plain English. Request income, expenses, amounts, received or due dates, recurrence, and currency when unclear. Do not ask for a reporting period before data exists; infer useful periods from the facts supplied. Ask follow-ups only for material gaps. A name and biography are optional.
 
-1. Primary currency
-2. First evidence period
-3. Personal, household, business, or combined scope
-4. Budget period
+Convert the answer into verified `Income`, `Expenses`, and `Recurring Costs` rows. Preserve uncertainty and the user's wording rather than guessing.
 
-A name and biography are optional.
+## 3. Optional evidence intake
 
-## 3. Evidence intake
-
-Ask the user to upload screenshots, receipts, exports, or statements to the configured expense inbox.
+After the initial rows exist, offer screenshots, receipts, exports, or statements as optional supporting evidence.
 
 For each source:
 
@@ -48,4 +43,4 @@ Infer recurrence only when repeated records or explicit evidence support it. Aft
 
 ## 6. First report
 
-Report the evidence period, total recorded expenses, category totals, recurring costs, possible subscriptions, fixed versus variable spending, missing information, proposed budget, and the most valuable next evidence to provide. Distinguish Provisional from Confirmed figures.
+Report the evidence period, total recorded income, total recorded expenses, expected net cash flow, category totals, recurring costs, possible subscriptions, fixed versus variable spending, missing information, proposed budget, and the most valuable next evidence to provide. Distinguish Provisional from Confirmed figures.

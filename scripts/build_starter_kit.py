@@ -31,7 +31,7 @@ WHITE = "FFFFFF"
 DARK = "1F2937"
 BORDER = "CFD7E6"
 
-FINANCE_TABS = {"System Check", "Expenses", "Budget", "Recurring Costs"}
+FINANCE_TABS = {"System Check", "Income", "Expenses", "Budget", "Recurring Costs"}
 DATE_TOKENS = ("Date", "At", "Period Start", "Period End", "Timestamp")
 AMOUNT_TOKENS = ("Amount", "Variance")
 
@@ -98,7 +98,7 @@ def add_start_sheet(workbook: Workbook) -> None:
         (4, "2", "Open it with Google Sheets and save it as a native Google Sheet named COS_DATABASE."),
         (5, "3", "Paste the folder link into the prompt in 01_COPY_THIS_PROMPT.txt."),
         (6, "4", "The agent must pass the System Check write-and-read-back test before onboarding."),
-        (7, "5", "Finance onboarding starts with currency, period, scope, and budget period. A name is optional."),
+        (7, "5", "Describe income and expenses in plain English, including amounts and dates. Evidence can follow later."),
     ]
     for row, number, text in rows:
         sheet[f"A{row}"] = number

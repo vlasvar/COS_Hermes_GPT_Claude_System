@@ -78,26 +78,31 @@ Use an agent environment with read/write access to the private Google Drive fold
 
 The first mission is finance, not biography.
 
-The agent asks one short question at a time:
+The agent begins with one useful open question:
 
-1. What is the primary currency?
-2. Which period should be examined first?
-3. Is the scope personal, household, business, or combined?
-4. Should the initial budget be monthly or use another period?
+> Describe your financial situation in plain English. Include your income and expenses, their amounts, and the dates you receive or pay them. Mention whether each item repeats. You can provide screenshots or statements afterward if you want.
+
+For example:
+
+> I earn 3,500 EUR every month and get paid on the 1st. I pay 600 EUR rent on the 5th of every month.
+
+The agent extracts currency, dates, recurrence, income, and expenses from the answer and updates the Google Sheet. It does **not** ask the user to choose a reporting period before any data exists. Follow-up questions are reserved for material gaps that prevent a correct record.
 
 The user's name and other identity details are optional.
 
-The agent then asks the user to place expense screenshots, receipts, exports, or statements in:
+Screenshots, receipts, exports, or statements are optional supporting evidence and can be added afterward in:
 
 ```text
 Inbox/Expenses-and-Receipts
 ```
 
-It extracts visible information, detects duplicates, writes provisional Expense records, links the source evidence, and records confidence. It never guesses a missing amount, date, merchant, or currency.
+It writes and verifies `Income`, `Expenses`, and `Recurring Costs` records from the plain-English description. If evidence is later provided, it extracts visible information, detects duplicates, links the source, and updates confidence. It never guesses a missing amount, date, merchant, source, or currency.
 
 The first report covers:
 
+- Total recorded income
 - Total recorded expenses
+- Expected net cash flow
 - Spending by category
 - Recurring costs and possible subscriptions
 - Fixed versus variable spending
@@ -114,6 +119,7 @@ Inside the configured COS folder, the agent may autonomously:
 - Read and organize files
 - Create and update Sheet records
 - Process financial screenshots and documents
+- Create and update Income records
 - Create provisional Expenses
 - Maintain Budget and Recurring Cost records
 - Create reports and internal Actions
@@ -160,6 +166,7 @@ COS_Finance_First_Starter/
 ### Finance-first
 
 - `System Check`
+- `Income`
 - `Expenses`
 - `Budget`
 - `Recurring Costs`
@@ -187,6 +194,23 @@ Platform-specific advanced setup remains available:
 - [ChatGPT Project](adapters/chatgpt/README.md)
 - [Claude Project](adapters/claude/README.md)
 - [Agent profiles and projects](docs/profiles.md)
+
+### Optional tested free-tier workaround: Claude + Composio
+
+This is **not the default agent or the main setup path**. It is included because, during project testing, Claude connected through Composio was the only free-tier workaround verified for the required Google Drive and Google Sheets operations. Native connectors and plan capabilities change, so always rely on the System Check write-and-read-back test rather than the connector label alone.
+
+To reproduce that optional setup:
+
+1. Sign in to [Claude](https://claude.ai/) in your browser first.
+2. Open [Composio](https://composio.dev/), choose **Claude**, then choose **Install for Claude & Cowork**.
+3. Click **Add the Composio Connector in Claude**. Because you are already signed in, Claude should open the connector flow with Composio prefilled.
+4. Select **Next** or **Continue** through the connection screens until Claude confirms that the connector is connected.
+5. In Composio, authorize Google Drive and Google Sheets with only the access this private COS folder requires.
+6. Return to Claude, send the supplied bootstrap prompt, and require the System Check write-and-read-back test. Do not continue if either Sheet write cannot be verified.
+
+![Composio installation page showing the Add the Composio Connector in Claude button and Claude Cowork Connectors menu](docs/images/composio-claude-cowork-connector.png)
+
+> This optional workaround avoids relying on a read-only native connector. It does not make paid Claude features free, and availability may change. Never place Google credentials, connector tokens, or private links in this repository.
 
 ## Optional dashboard
 

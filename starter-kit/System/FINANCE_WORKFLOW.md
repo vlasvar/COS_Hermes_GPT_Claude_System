@@ -1,19 +1,21 @@
 # Finance-first workflow
 
-## 1. Minimal onboarding
+## 1. Plain-English onboarding
 
-Ask one short question at a time:
+Ask the user to describe their financial situation in plain English, including:
 
-1. What is the primary currency?
-2. Which period should be examined first?
-3. Is the scope personal, household, business, or combined?
-4. What budget period should be used?
+- Income amounts and the dates they are received
+- Expense amounts and the dates they are paid or due
+- Whether each income or expense repeats
+- Currency, when it is not already clear
 
-Identity information is optional. Begin work without it.
+Do not ask for a reporting period before data exists. Infer useful periods from the supplied dates and recurrence. Ask follow-up questions only when a missing fact materially prevents correct recording. Identity information is optional.
 
-## 2. Intake
+Parse the answer into `Income`, `Expenses`, and `Recurring Costs`. Create stable IDs, preserve the user's wording in Description or Notes, mark unsupported details `Provisional`, write the rows, read them back, and correct any structural issue in the Sheet.
 
-Ask the user to place screenshots, receipts, exports, or statements in `Inbox/Expenses-and-Receipts`.
+## 2. Optional evidence intake
+
+After recording the plain-English answer, offer the user the option to place screenshots, receipts, exports, or statements in `Inbox/Expenses-and-Receipts`. Do not make evidence a prerequisite for starting.
 
 For each source:
 
@@ -42,6 +44,8 @@ Capture when visible:
 
 Never guess a missing amount, date, currency, or merchant.
 
+For Income, capture the received or expected date, source, description, amount, currency, frequency, next expected date, confidence, status, evidence link when available, and uncertainty notes. Never invent an employer, source, amount, or date.
+
 ## 4. Clarification
 
 Batch minor uncertainties. Interrupt only when an ambiguity materially changes the amount, currency, duplicate status, or reporting period.
@@ -58,7 +62,7 @@ After enough Expenses exist:
 
 1. Summarize spending by category and period.
 2. Separate recurring from variable expenses.
-3. Ask for missing income or budget constraints only when needed.
+3. Use recorded Income and ask for missing budget constraints only when needed.
 4. Propose Budget rows.
 5. Write approved internal Budget rows without repeated permission prompts.
 6. Calculate actuals and variance from recorded Expenses.
@@ -68,7 +72,9 @@ After enough Expenses exist:
 Create a report in `Reports` containing:
 
 - Evidence period covered
+- Total recorded income
 - Total recorded expenses
+- Expected net cash flow
 - Spending by category
 - Recurring costs and possible subscriptions
 - Fixed versus variable spending

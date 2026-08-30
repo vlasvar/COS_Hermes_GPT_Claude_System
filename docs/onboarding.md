@@ -33,11 +33,11 @@ The agent must:
 
 If the connector is read-only, the agent stops and explains the exact limitation. No prompt can create connector permissions that the platform does not expose.
 
-## 5. Complete minimal finance onboarding
+## 5. Describe the finances in plain English
 
-The agent asks one question at a time for primary currency, initial evidence period, finance scope, and budget period. Identity is optional.
+The agent asks the user to describe income and expenses in plain English, including amounts, received or due dates, recurrence, and currency when unclear. It does not ask for an arbitrary reporting period before any data exists. Identity is optional.
 
-The user then uploads screenshots, receipts, statements, or exports to `Inbox/Expenses-and-Receipts`. The agent follows `System/FINANCE_WORKFLOW.md` to create provisional Expenses, identify Recurring Costs, propose a Budget, and generate the first report.
+The agent converts that description into verified `Income`, `Expenses`, and `Recurring Costs` rows, asking only for material missing facts. The user may then provide screenshots, receipts, statements, or exports in `Inbox/Expenses-and-Receipts` as optional supporting evidence. The agent follows `System/FINANCE_WORKFLOW.md` to confirm records, propose a Budget, and generate the first report.
 
 ## 6. Expand only after the first report
 
