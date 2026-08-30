@@ -1,0 +1,14 @@
+{
+  "version": "0.1.0",
+  "id_format": "<TYPE>-<YYYYMMDD>-<4 digits>",
+  "tabs": [
+    {"name":"Inbox","key":"Inbox ID","columns":["Inbox ID","Received At","Source","Summary","Status","Proposed Destination","Evidence Link","Processed At"]},
+    {"name":"Projects","key":"Project ID","columns":["Project ID","Name","Desired Outcome","Owner","Status","Review Date","Next Action ID","Evidence Link","Updated At"]},
+    {"name":"Actions","key":"Action ID","columns":["Action ID","Project ID","Action","Owner","Due Date","Status","Approval State","Evidence Link","Updated At"]},
+    {"name":"Commitments","key":"Commitment ID","columns":["Commitment ID","Direction","Party","Commitment","Made At","Due Date","Status","Evidence Link","Updated At"]},
+    {"name":"Decisions","key":"Decision ID","columns":["Decision ID","Question","Decision","Rationale","Decided At","Revisit Trigger","Evidence Link","Updated At"]},
+    {"name":"Contacts","key":"Contact ID","columns":["Contact ID","Display Name","Type","Context","Status","Last Interaction","Evidence Link","Updated At"]},
+    {"name":"Reviews","key":"Review ID","columns":["Review ID","Period Start","Period End","Summary","Risks","Priorities","Created At","Evidence Link"]},
+    {"name":"Agent Log","key":"Log ID","columns":["Log ID","Timestamp","Agent","Operation","Target Type","Target ID","Approval State","Result","Evidence Link"]}
+  ]
+}

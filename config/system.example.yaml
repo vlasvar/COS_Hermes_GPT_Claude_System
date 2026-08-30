@@ -1,0 +1,27 @@
+system:
+  name: "My Chief of Staff"
+  timezone: "Etc/UTC"
+  review_day: "Friday"
+  review_time: "16:00"
+
+stores:
+  operational:
+    type: "google_sheets"
+    spreadsheet_id: "REPLACE_IN_PRIVATE_INSTANCE"
+  evidence:
+    type: "google_drive"
+    folder_id: "REPLACE_IN_PRIVATE_INSTANCE"
+
+permissions:
+  default_level: 1
+  maintain_internal_records: true
+  send_external_communications: "approval_required"
+  publish_content: "approval_required"
+  spend_or_transfer_money: "prohibited"
+  delete_records_or_files: "approval_required"
+  change_access_permissions: "approval_required"
+
+agent:
+  adapter: "hermes" # hermes | chatgpt | claude
+  log_material_operations: true
+  verify_external_writes: true

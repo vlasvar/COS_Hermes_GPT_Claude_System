@@ -1,0 +1,18 @@
+# Local/private instance data
+.env
+.env.*
+!.env.example
+config/local.*
+private/
+instance/
+credentials/
+*.key
+*.pem
+
+# Generated and editor files
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
